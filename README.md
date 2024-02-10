@@ -1,4 +1,5 @@
 # 478 ASSIGNMENT
+Link : https://productstore-1kxdrmtlw-abhishekiiitd.vercel.app/
 
 A brief description of what this project does and who it's for.
 
@@ -45,6 +46,5 @@ Include information about the license, or if the project is licensed, simply inc
 
 ## Contact
 
-Your Name - Your Email - Your Twitter (optional)
+Your Name - abhishek21121@iiitd.ac.in 
 
-Project Link: https://github.com/your_username/repo_name
