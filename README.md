@@ -1,7 +1,7 @@
 # 478 ASSIGNMENT
 Link : https://productstore-1kxdrmtlw-abhishekiiitd.vercel.app/
-
-A brief description of what this project does and who it's for.
+Due to time constraints I have not poperly distributed the site into components which would have made the code more easier to understand ,
+thought the code could be easily understood by the flow of the code
 
 ## Tech Stack
 
