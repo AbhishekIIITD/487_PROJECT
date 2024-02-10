@@ -1,54 +1,41 @@
-// components/Carousel.js
-import { useState } from "react";
+import React, { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
-const Carousel = ({ items }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export default function Carousel({items}) {
+  const swiperRef = useRef(null);
 
-  const handleChange = (index) => {
-    setCurrentIndex(index);
+  const goToSlide = (index) => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideTo(index);
+    }
   };
 
   return (
-    <div className="relative">
-      <div className="flex">
-        <img
-          src={items[currentIndex]}
-          className="transition-opacity duration-1000"
-        ></img>
-      </div>
-      
-      <div className="fixed left-5 border-black top-1/2 transform -translate-y-1/2 flex flex-col">
-        <button className="mb-4" onClick={() => handleChange(0)}>
-          <img
-            src="/graza.jpg"
-            alt="Button 1"
-            className="rounded-full w-12 h-12"
-          />
-        </button>
-        <button className="mb-4" onClick={() => handleChange(1)}>
-          <img
-            src="/graza1.jpg"
-            alt="Button 2"
-            className="rounded-full w-12 h-12"
-          />
-        </button>
-        <button className="mb-4" onClick={() => handleChange(2)}>
-          <img
-            src="/graza2.jpg"
-            alt="Button 3"
-            className="rounded-full w-12 h-12"
-          />
-        </button>
-        <button onClick={() => handleChange(3)}>
-          <img
-            src="/graza3.jpg"
-            alt="Button 4"
-            className="rounded-full w-12 h-12"
-          />
-        </button>
+    <div>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        ref={swiperRef}
+      >
+        {items.map((item, index) => (
+          <SwiperSlide key={index}>
+            <img src={item} alt={`Slide ${index + 1}`} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <div className="absolute md:bottom-0 left-5 border-black md:top-1/2 transform md:-translate-y-1/2 flex md:flex-col  z-10 bg-transparent ">
+        {items.map((item, index) => (
+          <button key={index} className="mb-4" onClick={() => goToSlide(index)}>
+            <img
+              src={item}
+              alt={`Button ${index + 1}`}
+              className="rounded-full w-16 h-16 border-2"
+            />
+          </button>
+        ))}
       </div>
     </div>
   );
-};
-
-export default Carousel;
+}

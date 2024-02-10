@@ -1,0 +1,10 @@
+.radio {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: white;
+  }
+  
+  .radio:checked {
+    background-color: green;
+  }
